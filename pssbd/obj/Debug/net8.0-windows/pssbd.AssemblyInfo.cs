@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pssbd")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0382a5ebd2c5c67ce03d0d8dbf9731b183dc9f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+effd41265ba2011ad2287164c9e2a2fe31d643ad")]
 [assembly: System.Reflection.AssemblyProductAttribute("pssbd")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pssbd")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
