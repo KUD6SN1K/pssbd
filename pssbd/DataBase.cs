@@ -3,30 +3,19 @@ using System.Data;
 
 namespace WindowsFormsApp1
 {
-    internal class DataBase
+    public class DataBase
     {
         // Connection string
         private string connectionString = "Host=localhost;Username=postgres;Password=8265;Database=pssbd";
 
-        // Method to open connection
-        public void openConnection(NpgsqlConnection sqlConnection)
+        // Constructor to set the connection string with dynamic username and password
+        public DataBase(string host, string username, string password, string database)
         {
-            if (sqlConnection.State == ConnectionState.Closed)
-            {
-                sqlConnection.Open();
-            }
+            connectionString = $"Host={host};Username={username};Password={password};Database={database}";
         }
 
-        // Method to close connection
-        public void closeConnection(NpgsqlConnection sqlConnection)
-        {
-            if (sqlConnection.State == ConnectionState.Open)
-            {
-                sqlConnection.Close();
-            }
-        }
-
-        // Method to get a new connection each time
+       
+        // Method to get a new connection using the current connection string
         public NpgsqlConnection getConnection()
         {
             return new NpgsqlConnection(connectionString);

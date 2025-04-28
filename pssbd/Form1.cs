@@ -5,91 +5,131 @@ using WindowsFormsApp1;
 
 namespace pssbd
 {
-    enum RowState
-    {
-        Existed,
-        New,
-        Modified,
-        ModifiedNew,
-        Deleted
-    }
-
     public partial class Form1 : Form
     {
-
-        DataBase database = new DataBase();
-        int selectedRow;
-
-        public Form1()
+        private DataBase database;
+        public DataBase Database { get; private set; }
+        public Form1(DataBase database)
         {
             InitializeComponent();
+            this.database = database;
         }
 
-        private void CreateColumns()
-        {
-            dataGridView1.Columns.Add("author_id", "id");
-            dataGridView1.Columns.Add("first_name", "Имя");
-            dataGridView1.Columns.Add("last_name", "Фамилия");
-            dataGridView1.Columns.Add("o_name", "Отчество");
-            dataGridView1.Columns.Add("country_name", "Страна");
-            dataGridView1.Columns.Add("IsNew", String.Empty);
-            dataGridView1.Columns["author_id"].Visible = false;
-            dataGridView1.Columns["IsNew"].Visible = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
-        private void ReadSingleRow(DataGridView dgw, IDataRecord record)
-        {
-
-            dgw.Rows.Add(
-                record.GetInt32(0),     // authord_id
-                record.GetString(1),    // first_name
-                record.GetString(2),    // last_name
-                record.GetString(3),    // o_name
-                record.GetString(4),    //county_id
-                RowState.ModifiedNew);
-        }
-
-        private void RefreshDataGrid(DataGridView dgw)
-        {
-            dgw.Rows.Clear();
-        }
-
+        private DataTable authorsTable;
         private int currentPage = 1;
         private int authorsPerPage = 20;
-
         private int totalAuthors;
+        private bool isSearchMode = false;
+        private string currentSearchTerm = "";
 
-        private void LoadViewData(DataGridView dgw)
+        private void CreateTable()
         {
-            dgw.Rows.Clear();
+            authorsTable = new DataTable();
+
+            authorsTable.Columns.Add("author_id", typeof(int));
+            authorsTable.Columns.Add("first_name", typeof(string));
+            authorsTable.Columns.Add("last_name", typeof(string));
+            authorsTable.Columns.Add("o_name", typeof(string));
+            authorsTable.Columns.Add("country_name", typeof(string));
+
+            dataGridView1.DataSource = authorsTable;
+
+            dataGridView1.Columns["author_id"].Visible = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Set readable headers
+            dataGridView1.Columns["first_name"].HeaderText = "Имя";
+            dataGridView1.Columns["last_name"].HeaderText = "Фамилия";
+            dataGridView1.Columns["o_name"].HeaderText = "Отчество";
+            dataGridView1.Columns["country_name"].HeaderText = "Страна";
+        }
+
+        private void SaveChanges()
+        {
+            using (var connection = database.getConnection())
+            {
+                connection.Open();
+
+                foreach (DataRow row in authorsTable.Rows)
+                {
+                    if (row.RowState == DataRowState.Deleted)
+                    {
+                        var id = row["author_id", DataRowVersion.Original];
+                        var deleteCmd = new NpgsqlCommand("SELECT delete_author(@id)", connection);
+                        deleteCmd.Parameters.AddWithValue("@id", (int)id);
+                        deleteCmd.ExecuteNonQuery();
+                    }
+                    else if (row.RowState == DataRowState.Modified)
+                    {
+                        var updateCmd = new NpgsqlCommand("SELECT update_author(@id, @first, @last, @o, @country)", connection);
+                        updateCmd.Parameters.AddWithValue("@id", (int)row["author_id"]);
+                        updateCmd.Parameters.AddWithValue("@first", row["first_name"]);
+                        updateCmd.Parameters.AddWithValue("@last", row["last_name"]);
+                        updateCmd.Parameters.AddWithValue("@o", row["o_name"]);
+                        updateCmd.Parameters.AddWithValue("@country", row["country_name"]);
+                        updateCmd.ExecuteNonQuery();
+                    }
+                    else if (row.RowState == DataRowState.Added)
+                    {
+                        var insertCmd = new NpgsqlCommand("SELECT insert_author(@first, @last, @o, @country)", connection);
+                        insertCmd.Parameters.AddWithValue("@first", row["first_name"]);
+                        insertCmd.Parameters.AddWithValue("@last", row["last_name"]);
+                        insertCmd.Parameters.AddWithValue("@o", row["o_name"]);
+                        insertCmd.Parameters.AddWithValue("@country", row["country_name"]);
+                        insertCmd.ExecuteNonQuery();
+                    }
+                }
+
+                authorsTable.AcceptChanges(); // Reset row states after save
+            }
+        }
+
+        private void LoadViewData()
+        {
+            authorsTable.Clear();
 
             int offset = (currentPage - 1) * authorsPerPage;
-            string query = $"SELECT * FROM authors_view LIMIT {authorsPerPage} OFFSET {offset}";
+            string query;
+            string countQuery;
 
             using (var connection = database.getConnection())
             {
                 connection.Open();
-                using (var command = new NpgsqlCommand(query, connection))
-                using (var reader = command.ExecuteReader())
+
+                if (isSearchMode)
                 {
-                    while (reader.Read())
+                    query = $"SELECT * FROM search_authors(@search_term) LIMIT {authorsPerPage} OFFSET {offset}";
+                    countQuery = "SELECT COUNT(*) FROM search_authors(@search_term)";
+
+                    using (var cmd = new NpgsqlCommand(query, connection))
                     {
-                        string oName = reader.IsDBNull(3) ? "" : reader.GetString(3); // Handle NULL for o_name (patronymic)
-                        dgw.Rows.Add(
-                            reader.GetInt32(0),    // author_id
-                            reader.GetString(1),   // first_name
-                            reader.GetString(2),   // last_name
-                            oName,                 // o_name (patronymic)
-                            reader.GetString(4),   // country_name
-                            RowState.Existed);
+                        cmd.Parameters.AddWithValue("@search_term", currentSearchTerm);
+                        using (var adapter = new NpgsqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(authorsTable);
+                        }
+                    }
+
+                    using (var countCmd = new NpgsqlCommand(countQuery, connection))
+                    {
+                        countCmd.Parameters.AddWithValue("@search_term", currentSearchTerm);
+                        totalAuthors = Convert.ToInt32(countCmd.ExecuteScalar());
                     }
                 }
-
-                // Get total number of authors for pagination purposes
-                using (var command = new NpgsqlCommand("SELECT COUNT(*) FROM authors_view", connection))
+                else
                 {
-                    totalAuthors = Convert.ToInt32(command.ExecuteScalar());
+                    query = $"SELECT * FROM authors_view LIMIT {authorsPerPage} OFFSET {offset}";
+                    countQuery = "SELECT COUNT(*) FROM authors_view";
+
+                    using (var adapter = new NpgsqlDataAdapter(query, connection))
+                    {
+                        adapter.Fill(authorsTable);
+                    }
+
+                    using (var countCmd = new NpgsqlCommand(countQuery, connection))
+                    {
+                        totalAuthors = Convert.ToInt32(countCmd.ExecuteScalar());
+                    }
                 }
             }
 
@@ -104,9 +144,8 @@ namespace pssbd
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            CreateColumns();
-            LoadViewData(dataGridView1);
+            CreateTable();
+            LoadViewData();
         }
 
         private void nextToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,7 +154,7 @@ namespace pssbd
             if (currentPage < totalPages)
             {
                 currentPage++;
-                LoadViewData(dataGridView1);
+                LoadViewData();
             }
         }
 
@@ -124,8 +163,40 @@ namespace pssbd
             if (currentPage > 1)
             {
                 currentPage--;
-                LoadViewData(dataGridView1);
+                LoadViewData();
             }
+        }
+
+        private void btnSaveChanges_Click(object sender, EventArgs e)
+        {
+            SaveChanges();
+        }
+
+       
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                isSearchMode = true;
+                currentSearchTerm = textBox1.Text;
+            }
+            else
+            {
+                isSearchMode = false;
+                currentSearchTerm = "";
+            }
+
+            currentPage = 1; // Reset to first page when searching
+            LoadViewData();
+        }
+
+        private void btnClearSearch_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            isSearchMode = false;
+            currentSearchTerm = "";
+            currentPage = 1;
+            LoadViewData();
         }
     }
 }
