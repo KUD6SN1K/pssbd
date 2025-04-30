@@ -112,5 +112,17 @@ namespace pssbd
             _editionsManager.Search("");
             label3.Text = _editionsManager.GetPageInfo();
         }
+
+        private void nextToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            _editionsManager.NextPage();
+            label3.Text = _editionsManager.GetPageInfo();
+        }
+
+        private void previousToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            _editionsManager.PreviousPage();
+            label3.Text = _editionsManager.GetPageInfo();
+        }
     }
 }

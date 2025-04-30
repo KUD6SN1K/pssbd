@@ -2,7 +2,6 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using WindowsFormsApp1;
 
 namespace pssbd
@@ -151,12 +150,12 @@ namespace pssbd
             // 2. Добавляем авторов
             AddAuthorsToBook(bookId, authors, connection);
 
-            // 3. Добавляем жанры
-            AddGenresToBook(bookId, genres, connection);
+            // 3. Добавляем только существующие жанры
+            AddExistingGenresToBook(bookId, genres, connection);
 
-            // 4. Создаем издание
+            // 4. Создаем издание с проверкой существования справочных данных
             new NpgsqlCommand(
-                "SELECT insert_edition(@book_id, @publisher_name, @language_name, " +
+                "SELECT create_edition_with_existing_references(@book_id, @publisher_name, @language_name, " +
                 "@binding_type_name, @publication_type_name, @price, @publication_year, @printrun)",
                 connection)
                 .AddParams(new
@@ -175,16 +174,7 @@ namespace pssbd
 
         private int GetOrCreateBook(string title, NpgsqlConnection connection)
         {
-            // Проверяем существование книги
-            using (var cmd = new NpgsqlCommand("SELECT book_id FROM books WHERE title = @title", connection))
-            {
-                cmd.AddParam("@title", title);
-                var result = cmd.ExecuteScalar();
-                if (result != null) return Convert.ToInt32(result);
-            }
-
-            // Создаем новую книгу
-            using (var cmd = new NpgsqlCommand("INSERT INTO books (title) VALUES (@title) RETURNING book_id", connection))
+            using (var cmd = new NpgsqlCommand("SELECT get_or_create_book(@title)", connection))
             {
                 cmd.AddParam("@title", title);
                 return Convert.ToInt32(cmd.ExecuteScalar());
@@ -200,13 +190,10 @@ namespace pssbd
                 string trimmedName = authorName.Trim();
                 if (string.IsNullOrEmpty(trimmedName)) continue;
 
-                // Получаем или создаем автора
                 int authorId = GetOrCreateAuthor(trimmedName, connection);
 
-                // Связываем автора с книгой
                 new NpgsqlCommand(
-                    "INSERT INTO book_author (book_id, author_id) VALUES (@book_id, @author_id) " +
-                    "ON CONFLICT DO NOTHING",
+                    "SELECT add_author_to_book(@book_id, @author_id)",
                     connection)
                     .AddParams(new { book_id = bookId, author_id = authorId })
                     .ExecuteNonQuery();
@@ -219,19 +206,8 @@ namespace pssbd
             string firstName = nameParts.Length > 0 ? nameParts[0] : "";
             string lastName = nameParts.Length > 1 ? nameParts[1] : "";
 
-            // Проверяем существование автора
             using (var cmd = new NpgsqlCommand(
-                "SELECT author_id FROM authors WHERE first_name = @first AND last_name = @last",
-                connection))
-            {
-                cmd.AddParams(new { first = firstName, last = lastName });
-                var result = cmd.ExecuteScalar();
-                if (result != null) return Convert.ToInt32(result);
-            }
-
-            // Создаем нового автора
-            using (var cmd = new NpgsqlCommand(
-                "INSERT INTO authors (first_name, last_name) VALUES (@first, @last) RETURNING author_id",
+                "SELECT get_or_create_author(@first, @last)",
                 connection))
             {
                 cmd.AddParams(new { first = firstName, last = lastName });
@@ -239,7 +215,7 @@ namespace pssbd
             }
         }
 
-        private void AddGenresToBook(int bookId, string genres, NpgsqlConnection connection)
+        private void AddExistingGenresToBook(int bookId, string genres, NpgsqlConnection connection)
         {
             if (string.IsNullOrWhiteSpace(genres)) return;
 
@@ -248,44 +224,32 @@ namespace pssbd
                 string trimmedName = genreName.Trim();
                 if (string.IsNullOrEmpty(trimmedName)) continue;
 
-                // Получаем или создаем жанр
-                int genreId = GetOrCreateGenre(trimmedName, connection);
-
-                // Связываем жанр с книгой
-                new NpgsqlCommand(
-                    "INSERT INTO book_genre (book_id, genre_id) VALUES (@book_id, @genre_id) " +
-                    "ON CONFLICT DO NOTHING",
-                    connection)
-                    .AddParams(new { book_id = bookId, genre_id = genreId })
-                    .ExecuteNonQuery();
+                int? genreId = GetExistingGenreId(trimmedName, connection);
+                if (genreId.HasValue)
+                {
+                    new NpgsqlCommand(
+                        "SELECT add_genre_to_book(@book_id, @genre_id)",
+                        connection)
+                        .AddParams(new { book_id = bookId, genre_id = genreId.Value })
+                        .ExecuteNonQuery();
+                }
             }
         }
 
-        private int GetOrCreateGenre(string name, NpgsqlConnection connection)
+        private int? GetExistingGenreId(string name, NpgsqlConnection connection)
         {
-            // Проверяем существование жанра
-            using (var cmd = new NpgsqlCommand("SELECT genre_id FROM genres WHERE genre_name = @name", connection))
+            using (var cmd = new NpgsqlCommand("SELECT get_genre_id_by_name(@name)", connection))
             {
                 cmd.AddParam("@name", name);
                 var result = cmd.ExecuteScalar();
-                if (result != null) return Convert.ToInt32(result);
-            }
-
-            // Создаем новый жанр
-            using (var cmd = new NpgsqlCommand(
-                "INSERT INTO genres (genre_name) VALUES (@name) RETURNING genre_id",
-                connection))
-            {
-                cmd.AddParam("@name", name);
-                return Convert.ToInt32(cmd.ExecuteScalar());
+                return result != DBNull.Value ? (int?)Convert.ToInt32(result) : null;
             }
         }
 
         private void UpdateEdition(DataRow row, NpgsqlConnection connection)
         {
-            // Обновляем издание
             new NpgsqlCommand(
-                "SELECT update_edition(@edition_id, @book_title, @publisher_name, @language_name, " +
+                "SELECT update_edition_with_existing_references(@edition_id, @book_title, @publisher_name, @language_name, " +
                 "@binding_type_name, @publication_type_name, @price, @publication_year, @printrun)",
                 connection)
                 .AddParams(new
@@ -302,7 +266,6 @@ namespace pssbd
                 })
                 .ExecuteNonQuery();
 
-            // Обновляем авторов и жанры (при необходимости)
             int bookId = GetBookIdForEdition((int)row["edition_id"], connection);
             UpdateBookAuthors(bookId, row["authors"].ToString(), connection);
             UpdateBookGenres(bookId, row["genres"].ToString(), connection);
@@ -311,7 +274,7 @@ namespace pssbd
         private int GetBookIdForEdition(int editionId, NpgsqlConnection connection)
         {
             using (var cmd = new NpgsqlCommand(
-                "SELECT book_id FROM editions WHERE edition_id = @edition_id",
+                "SELECT get_book_id_for_edition(@edition_id)",
                 connection))
             {
                 cmd.AddParam("@edition_id", editionId);
@@ -321,28 +284,24 @@ namespace pssbd
 
         private void UpdateBookAuthors(int bookId, string authors, NpgsqlConnection connection)
         {
-            // Удаляем старых авторов
             new NpgsqlCommand(
-                "DELETE FROM book_author WHERE book_id = @book_id",
+                "SELECT clear_book_authors(@book_id)",
                 connection)
                 .AddParam("@book_id", bookId)
                 .ExecuteNonQuery();
 
-            // Добавляем новых авторов
             AddAuthorsToBook(bookId, authors, connection);
         }
 
         private void UpdateBookGenres(int bookId, string genres, NpgsqlConnection connection)
         {
-            // Удаляем старые жанры
             new NpgsqlCommand(
-                "DELETE FROM book_genre WHERE book_id = @book_id",
+                "SELECT clear_book_genres(@book_id)",
                 connection)
                 .AddParam("@book_id", bookId)
                 .ExecuteNonQuery();
 
-            // Добавляем новые жанры
-            AddGenresToBook(bookId, genres, connection);
+            AddExistingGenresToBook(bookId, genres, connection);
         }
 
         private void DeleteEdition(int editionId, NpgsqlConnection connection)

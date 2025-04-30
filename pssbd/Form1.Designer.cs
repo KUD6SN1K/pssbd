@@ -357,12 +357,14 @@
             previousToolStripMenuItem2.Name = "previousToolStripMenuItem2";
             previousToolStripMenuItem2.Size = new Size(64, 20);
             previousToolStripMenuItem2.Text = "previous";
+            previousToolStripMenuItem2.Click += previousToolStripMenuItem2_Click;
             // 
             // nextToolStripMenuItem2
             // 
             nextToolStripMenuItem2.Name = "nextToolStripMenuItem2";
             nextToolStripMenuItem2.Size = new Size(42, 20);
             nextToolStripMenuItem2.Text = "next";
+            nextToolStripMenuItem2.Click += nextToolStripMenuItem2_Click;
             // 
             // Form1
             // 
