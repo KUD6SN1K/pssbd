@@ -7,31 +7,83 @@ namespace pssbd
 {
     public partial class Form1 : Form
     {
-        private readonly AuthorsManager _authorsManager;
-        private readonly PublishersManager _publishersManager;
-        private readonly EditionsManager _editionsManager;
+        private AuthorsManager _authorsManager;
+        private PublishersManager _publishersManager;
+        private EditionsManager _editionsManager;
+        private BooksManager _booksManager;
+        private PublicationTypesManager _publicationtypesManager;
+        private OwnershipTypesManager _ownershiptypesManager;
+        private LanguagesManager _languagesManager;
+        private GenresManager _genresManager;
+        private CountriesManager _countriesManager;
+        private CitiesManager _citiesManager;
+        private BindingTypesManager _bindingtypesManager;
+        private readonly DataBase _database;
+        private bool _isAdmin;
 
         public Form1(DataBase database)
         {
             InitializeComponent();
+            _database = database;
+
+            // Основные менеджеры всегда создаются
             _authorsManager = new AuthorsManager(database, dataGridView1);
             _publishersManager = new PublishersManager(database, dataGridView2);
             _editionsManager = new EditionsManager(database, dataGridView3);
+            _booksManager = new BooksManager(database, dataGridView4);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            CheckUserRole();
+
+            if (_isAdmin)
+            {
+                // Только если админ — создаём справочники и загружаем
+                _publicationtypesManager = new PublicationTypesManager(_database, dataGridView5);
+                _ownershiptypesManager = new OwnershipTypesManager(_database, dataGridView6);
+                _languagesManager = new LanguagesManager(_database, dataGridView7);
+                _genresManager = new GenresManager(_database, dataGridView8);
+                _countriesManager = new CountriesManager(_database, dataGridView9);
+                _citiesManager = new CitiesManager(_database, dataGridView10);
+                _bindingtypesManager = new BindingTypesManager(_database, dataGridView11);
+
+                _publicationtypesManager.LoadData();
+                _ownershiptypesManager.LoadData();
+                _languagesManager.LoadData();
+                _genresManager.LoadData();
+                _countriesManager.LoadData();
+                _citiesManager.LoadData();
+                _bindingtypesManager.LoadData();
+            }
+            else
+            {
+                // Удаляем вкладку со справочниками
+                tabControl1.TabPages.Remove(tabPage5);
+            }
+
+            // Загружаем данные основных таблиц
             _authorsManager.LoadData();
             _publishersManager.LoadData();
             _editionsManager.LoadData();
+            _booksManager.LoadData();
+
             UpdatePageLabels();
         }
+
+        private void CheckUserRole()
+        {
+            var roles = _database.GetUserRoles();
+            _isAdmin = roles.Contains("admin");
+        }
+
 
         private void UpdatePageLabels()
         {
             label1.Text = _authorsManager.GetPageInfo();
             label2.Text = _publishersManager.GetPageInfo();
             label3.Text = _editionsManager.GetPageInfo();
+            label4.Text = _booksManager.GetPageInfo();
         }
 
         private void nextToolStripMenuItem_Click(object sender, EventArgs e)
@@ -123,6 +175,101 @@ namespace pssbd
         {
             _editionsManager.PreviousPage();
             label3.Text = _editionsManager.GetPageInfo();
+        }
+
+        private void btnSaveChanges3_Click(object sender, EventArgs e)
+        {
+            _booksManager.SaveChanges();
+        }
+
+        private void btnSearch3_Click(object sender, EventArgs e)
+        {
+            _booksManager.Search(textBox4.Text);
+            label4.Text = _booksManager.GetPageInfo();
+        }
+
+        private void btnClearSearch3_Click(object sender, EventArgs e)
+        {
+            textBox4.Text = "";
+            _booksManager.Search("");
+            label4.Text = _booksManager.GetPageInfo();
+        }
+
+        private void previousToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            _booksManager.PreviousPage();
+            label4.Text = _booksManager.GetPageInfo();
+        }
+
+        private void nextToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            _booksManager.NextPage();
+            label4.Text = _booksManager.GetPageInfo();
+        }
+
+        private void btnSaveChanges4_Click(object sender, EventArgs e)
+        {
+            _publicationtypesManager.SaveChanges();
+        }
+
+        private void btnSaveChanges5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveChanges6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClearSearch4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveChanges7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveChanges8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClearSearch5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveChanges10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClearSearch6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveChanges11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
