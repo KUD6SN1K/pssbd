@@ -214,62 +214,65 @@ namespace pssbd
 
         private void btnSaveChanges5_Click(object sender, EventArgs e)
         {
-
+            _ownershiptypesManager.SaveChanges();
         }
 
         private void btnSaveChanges6_Click(object sender, EventArgs e)
         {
-
+            _languagesManager.SaveChanges();
         }
 
         private void btnSearch4_Click(object sender, EventArgs e)
         {
-
+            _languagesManager.Search(textBox5.Text);          
         }
 
         private void btnClearSearch4_Click(object sender, EventArgs e)
         {
-
+            textBox5.Text = "";
+            _languagesManager.Search("");
         }
 
         private void btnSaveChanges7_Click(object sender, EventArgs e)
         {
-
+            _genresManager.SaveChanges();
         }
 
         private void btnSaveChanges8_Click(object sender, EventArgs e)
         {
-
+            _countriesManager.SaveChanges();
         }
 
         private void btnSearch5_Click(object sender, EventArgs e)
         {
-
+            _countriesManager.Search(textBox5.Text);
         }
 
         private void btnClearSearch5_Click(object sender, EventArgs e)
         {
-
+            textBox6.Text = "";
+            _countriesManager.Search("");
         }
 
         private void btnSaveChanges10_Click(object sender, EventArgs e)
         {
-
+            _citiesManager.SaveChanges();
         }
 
         private void btnSearch6_Click(object sender, EventArgs e)
         {
-
+            _citiesManager.Search(textBox5.Text);
         }
 
         private void btnClearSearch6_Click(object sender, EventArgs e)
         {
-
+            textBox7.Text = "";
+            _citiesManager.Search("");
         }
 
         private void btnSaveChanges11_Click(object sender, EventArgs e)
         {
-
+            _bindingtypesManager.SaveChanges();
         }
     }
 }

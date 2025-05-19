@@ -39,7 +39,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 0;
-            textBox1.Text = "postgres";
+            textBox1.Text = "daun";
             // 
             // textBox2
             // 
