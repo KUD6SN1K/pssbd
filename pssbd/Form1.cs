@@ -18,6 +18,7 @@ namespace pssbd
         private CountriesManager _countriesManager;
         private CitiesManager _citiesManager;
         private BindingTypesManager _bindingtypesManager;
+        private UsersManager _usersManager;
         private readonly DataBase _database;
         private bool _isAdmin;
 
@@ -47,6 +48,7 @@ namespace pssbd
                 _countriesManager = new CountriesManager(_database, dataGridView9);
                 _citiesManager = new CitiesManager(_database, dataGridView10);
                 _bindingtypesManager = new BindingTypesManager(_database, dataGridView11);
+                _usersManager = new UsersManager(_database, dataGridView12);
 
                 _publicationtypesManager.LoadData();
                 _ownershiptypesManager.LoadData();
@@ -55,6 +57,7 @@ namespace pssbd
                 _countriesManager.LoadData();
                 _citiesManager.LoadData();
                 _bindingtypesManager.LoadData();
+                _usersManager.LoadData();
             }
             else
             {
@@ -224,7 +227,7 @@ namespace pssbd
 
         private void btnSearch4_Click(object sender, EventArgs e)
         {
-            _languagesManager.Search(textBox5.Text);          
+            _languagesManager.Search(textBox5.Text);
         }
 
         private void btnClearSearch4_Click(object sender, EventArgs e)
@@ -273,6 +276,11 @@ namespace pssbd
         private void btnSaveChanges11_Click(object sender, EventArgs e)
         {
             _bindingtypesManager.SaveChanges();
+        }
+
+        private void btnSaveChanges444_Click(object sender, EventArgs e)
+        {
+            _usersManager.SaveChanges();
         }
     }
 }

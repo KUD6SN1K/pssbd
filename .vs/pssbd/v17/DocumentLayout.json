@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\pssbd\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\log_in_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\log_in_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -11,24 +23,44 @@
       "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\log_in_form.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\usersmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\usersmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\publicationtypesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\publicationtypesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\publishersmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\publishersmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\ownershiptypesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\ownershiptypesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\npgsqlcommandextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\npgsqlcommandextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\languagesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\languagesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\editionsmanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\editionsmanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\authorsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\authorsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\genresmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\genresmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\booksmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,40 +71,12 @@
       "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\bindingtypesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\authorsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\authorsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\citiesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\citiesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\editionsmanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\editionsmanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\genresmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\genresmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\ownershiptypesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\ownershiptypesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\publishersmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\publishersmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\countriesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\countriesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\npgsqlcommandextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\npgsqlcommandextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|c:\\users\\admin\\source\\repos\\pssbd\\pssbd\\languagesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{70AB654E-44A3-4F34-8E8A-28B3875D0ED9}|pssbd\\pssbd.csproj|solutionrelative:pssbd\\languagesmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,37 +86,39 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 16,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "AuthorsManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\AuthorsManager.cs",
               "RelativeDocumentMoniker": "pssbd\\AuthorsManager.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\AuthorsManager.cs",
               "RelativeToolTip": "pssbd\\AuthorsManager.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAmwGIAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAASwFQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T09:16:16.472Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 7,
               "Title": "PublishersManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\PublishersManager.cs",
               "RelativeDocumentMoniker": "pssbd\\PublishersManager.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\PublishersManager.cs",
               "RelativeToolTip": "pssbd\\PublishersManager.cs",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAYwLAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAuwJAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T09:36:18.772Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "EditionsManger.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\EditionsManger.cs",
               "RelativeDocumentMoniker": "pssbd\\EditionsManger.cs",
@@ -121,11 +127,12 @@
               "ViewState": "AgIAADQBAAAAAAAAAAAAAHwAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T12:47:07.048Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "BooksManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\BooksManager.cs",
               "RelativeDocumentMoniker": "pssbd\\BooksManager.cs",
@@ -138,13 +145,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "PublicationTypesManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\PublicationTypesManager.cs",
               "RelativeDocumentMoniker": "pssbd\\PublicationTypesManager.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\PublicationTypesManager.cs",
               "RelativeToolTip": "pssbd\\PublicationTypesManager.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAGAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T11:25:06.786Z",
               "IsPinned": true,
@@ -152,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 8,
               "Title": "OwnershipTypesManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\OwnershipTypesManager.cs",
               "RelativeDocumentMoniker": "pssbd\\OwnershipTypesManager.cs",
@@ -161,37 +168,40 @@
               "ViewState": "AgIAAAsAAAAAAAAAAAAQwB0AAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T13:28:22.721Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 11,
               "Title": "LanguagesManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\LanguagesManager.cs",
               "RelativeDocumentMoniker": "pssbd\\LanguagesManager.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\LanguagesManager.cs",
               "RelativeToolTip": "pssbd\\LanguagesManager.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAuwJYAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAYwJYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T13:38:27.257Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "GenresManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\GenresManager.cs",
               "RelativeDocumentMoniker": "pssbd\\GenresManager.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\GenresManager.cs",
               "RelativeToolTip": "pssbd\\GenresManager.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAYwCoAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T13:45:08.198Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "CountriesManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\CountriesManager.cs",
               "RelativeDocumentMoniker": "pssbd\\CountriesManager.cs",
@@ -204,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "CitiesManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\CitiesManager.cs",
               "RelativeDocumentMoniker": "pssbd\\CitiesManager.cs",
@@ -217,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "BindingTypesManager.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\BindingTypesManager.cs",
               "RelativeDocumentMoniker": "pssbd\\BindingTypesManager.cs",
@@ -230,7 +240,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 5,
+              "Title": "UsersManager.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\UsersManager.cs",
+              "RelativeDocumentMoniker": "pssbd\\UsersManager.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\UsersManager.cs",
+              "RelativeToolTip": "pssbd\\UsersManager.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwDcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T14:23:46.276Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "NpgsqlCommandExtensions.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\NpgsqlCommandExtensions.cs",
               "RelativeDocumentMoniker": "pssbd\\NpgsqlCommandExtensions.cs",
@@ -238,24 +262,25 @@
               "RelativeToolTip": "pssbd\\NpgsqlCommandExtensions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T12:50:07.075Z"
+              "WhenOpened": "2025-04-29T12:50:07.075Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "log_in_form.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\log_in_form.cs",
               "RelativeDocumentMoniker": "pssbd\\log_in_form.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\log_in_form.cs",
               "RelativeToolTip": "pssbd\\log_in_form.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAwwDgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-29T10:29:31.679Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "log_in_form.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\log_in_form.cs",
               "RelativeDocumentMoniker": "pssbd\\log_in_form.cs",
@@ -267,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\Form1.cs",
               "RelativeDocumentMoniker": "pssbd\\Form1.cs",
@@ -279,41 +304,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\Form1.cs",
               "RelativeDocumentMoniker": "pssbd\\Form1.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\Form1.cs",
               "RelativeToolTip": "pssbd\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAABQAAAAAAAAAA==",
+              "ViewState": "AgIAAAgBAAAAAAAAAIAwwB0BAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-21T08:50:44.289Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "DataBase.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\DataBase.cs",
               "RelativeDocumentMoniker": "pssbd\\DataBase.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\DataBase.cs",
               "RelativeToolTip": "pssbd\\DataBase.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBcAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAMwCYAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-25T11:32:25.23Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\Program.cs",
               "RelativeDocumentMoniker": "pssbd\\Program.cs",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\pssbd\\pssbd\\Program.cs",
               "RelativeToolTip": "pssbd\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T08:56:03.062Z"
+              "WhenOpened": "2025-04-21T08:56:03.062Z",
+              "EditorCaption": ""
             }
           ]
         }

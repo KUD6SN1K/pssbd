@@ -102,7 +102,9 @@
             btnSaveChanges11 = new Button();
             dataGridView11 = new DataGridView();
             tabPage6 = new TabPage();
+            btnSaveChanges444 = new Button();
             dataGridView12 = new DataGridView();
+            tabPage14 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -144,6 +146,7 @@
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
+            tabControl1.Controls.Add(tabPage14);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.ItemSize = new Size(60, 20);
             tabControl1.Location = new Point(0, 0);
@@ -856,6 +859,7 @@
             // 
             // tabPage6
             // 
+            tabPage6.Controls.Add(btnSaveChanges444);
             tabPage6.Controls.Add(dataGridView12);
             tabPage6.Location = new Point(4, 24);
             tabPage6.Name = "tabPage6";
@@ -865,6 +869,16 @@
             tabPage6.Text = "Пользователи";
             tabPage6.UseVisualStyleBackColor = true;
             // 
+            // btnSaveChanges444
+            // 
+            btnSaveChanges444.Location = new Point(310, 411);
+            btnSaveChanges444.Name = "btnSaveChanges444";
+            btnSaveChanges444.Size = new Size(75, 23);
+            btnSaveChanges444.TabIndex = 7;
+            btnSaveChanges444.Text = "save";
+            btnSaveChanges444.UseVisualStyleBackColor = true;
+            btnSaveChanges444.Click += btnSaveChanges444_Click;
+            // 
             // dataGridView12
             // 
             dataGridView12.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -872,6 +886,16 @@
             dataGridView12.Name = "dataGridView12";
             dataGridView12.Size = new Size(756, 371);
             dataGridView12.TabIndex = 6;
+            // 
+            // tabPage14
+            // 
+            tabPage14.Location = new Point(4, 24);
+            tabPage14.Name = "tabPage14";
+            tabPage14.Padding = new Padding(3);
+            tabPage14.Size = new Size(1255, 615);
+            tabPage14.TabIndex = 6;
+            tabPage14.Text = "Аналитика";
+            tabPage14.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1007,5 +1031,7 @@
         private Button btnSaveChanges10;
         private Button btnSaveChanges11;
         private DataGridView dataGridView12;
+        private TabPage tabPage14;
+        private Button btnSaveChanges444;
     }
 }
