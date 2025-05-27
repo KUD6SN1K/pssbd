@@ -21,6 +21,7 @@ namespace pssbd
         private UsersManager _usersManager;
         private readonly DataBase _database;
         private bool _isAdmin;
+        private AnalyticsQueriesManager _analyticsManager;
 
         public Form1(DataBase database)
         {
@@ -36,36 +37,23 @@ namespace pssbd
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CheckUserRole();
+            var roles = _database.GetUserRoles();
+            _isAdmin = roles.Contains("admin");
 
             if (_isAdmin)
             {
-                // Только если админ — создаём справочники и загружаем
-                _publicationtypesManager = new PublicationTypesManager(_database, dataGridView5);
-                _ownershiptypesManager = new OwnershipTypesManager(_database, dataGridView6);
-                _languagesManager = new LanguagesManager(_database, dataGridView7);
-                _genresManager = new GenresManager(_database, dataGridView8);
-                _countriesManager = new CountriesManager(_database, dataGridView9);
-                _citiesManager = new CitiesManager(_database, dataGridView10);
-                _bindingtypesManager = new BindingTypesManager(_database, dataGridView11);
-                _usersManager = new UsersManager(_database, dataGridView12);
-
-                _publicationtypesManager.LoadData();
-                _ownershiptypesManager.LoadData();
-                _languagesManager.LoadData();
-                _genresManager.LoadData();
-                _countriesManager.LoadData();
-                _citiesManager.LoadData();
-                _bindingtypesManager.LoadData();
-                _usersManager.LoadData();
+                InitializeReferenceManagers();
             }
             else
             {
-                // Удаляем вкладку со справочниками
-                tabControl1.TabPages.Remove(tabPage5);
+                AdjustTabsByRoles(roles);
             }
 
-            // Загружаем данные основных таблиц
+            if (roles.Count == 1 && roles.Contains("analyst"))
+            {
+                RestrictMainTablesInteraction();
+            }
+
             _authorsManager.LoadData();
             _publishersManager.LoadData();
             _editionsManager.LoadData();
@@ -74,10 +62,65 @@ namespace pssbd
             UpdatePageLabels();
         }
 
-        private void CheckUserRole()
+
+        private void InitializeReferenceManagers()
         {
-            var roles = _database.GetUserRoles();
-            _isAdmin = roles.Contains("admin");
+            _publicationtypesManager = new PublicationTypesManager(_database, dataGridView5);
+            _ownershiptypesManager = new OwnershipTypesManager(_database, dataGridView6);
+            _languagesManager = new LanguagesManager(_database, dataGridView7);
+            _genresManager = new GenresManager(_database, dataGridView8);
+            _countriesManager = new CountriesManager(_database, dataGridView9);
+            _citiesManager = new CitiesManager(_database, dataGridView10);
+            _bindingtypesManager = new BindingTypesManager(_database, dataGridView11);
+            _usersManager = new UsersManager(_database, dataGridView12);
+            _analyticsManager = new AnalyticsQueriesManager(_database, comboBox1, textBoxFirstParam, textBoxSecondParam, dataGridView13);
+
+            _publicationtypesManager.LoadData();
+            _ownershiptypesManager.LoadData();
+            _languagesManager.LoadData();
+            _genresManager.LoadData();
+            _countriesManager.LoadData();
+            _citiesManager.LoadData();
+            _bindingtypesManager.LoadData();
+            _usersManager.LoadData();
+        }
+
+        private void AdjustTabsByRoles(List<string> roles)
+        {
+            if (roles.Contains("analyst"))
+                _analyticsManager = new AnalyticsQueriesManager(_database, comboBox1, textBoxFirstParam, textBoxSecondParam, dataGridView13);
+            // Remove tabPage5 (справочники) if not admin
+            if (!roles.Contains("admin"))
+                RemoveTabIfExists(tabPage5);
+
+            // Remove tabPage6 (пользователи) if not admin
+            if (!roles.Contains("admin"))
+                RemoveTabIfExists(tabPage6);
+
+            // Remove tabPage14 (аналитика) if not analyst
+            if (!roles.Contains("analyst"))
+                RemoveTabIfExists(tabPage14);
+        }
+
+        private void RemoveTabIfExists(TabPage tabPage)
+        {
+            if (tabControl1.TabPages.Contains(tabPage))
+            {
+                tabControl1.TabPages.Remove(tabPage);
+            }
+        }
+
+        private void RestrictMainTablesInteraction()
+        {
+            foreach (var dgv in new[] { dataGridView1, dataGridView2, dataGridView3, dataGridView4 })
+            {
+                dgv.AllowUserToAddRows = false;
+                dgv.AllowUserToDeleteRows = false;
+                dgv.ReadOnly = true;
+                dgv.AllowUserToOrderColumns = false;
+                dgv.AllowUserToResizeColumns = false;
+                dgv.AllowUserToResizeRows = false;
+            }
         }
 
 
@@ -87,6 +130,12 @@ namespace pssbd
             label2.Text = _publishersManager.GetPageInfo();
             label3.Text = _editionsManager.GetPageInfo();
             label4.Text = _booksManager.GetPageInfo();
+            if (_isAdmin)
+            {
+                label5.Text = _languagesManager.GetPageInfo();
+                label6.Text = _countriesManager.GetPageInfo();
+                label7.Text = _citiesManager.GetPageInfo();
+            }
         }
 
         private void nextToolStripMenuItem_Click(object sender, EventArgs e)
@@ -232,7 +281,7 @@ namespace pssbd
 
         private void btnClearSearch4_Click(object sender, EventArgs e)
         {
-            textBox5.Text = "";
+            textBox5.Text = ""; 
             _languagesManager.Search("");
         }
 
@@ -248,7 +297,7 @@ namespace pssbd
 
         private void btnSearch5_Click(object sender, EventArgs e)
         {
-            _countriesManager.Search(textBox5.Text);
+            _countriesManager.Search(textBox6.Text);
         }
 
         private void btnClearSearch5_Click(object sender, EventArgs e)
@@ -264,7 +313,7 @@ namespace pssbd
 
         private void btnSearch6_Click(object sender, EventArgs e)
         {
-            _citiesManager.Search(textBox5.Text);
+            _citiesManager.Search(textBox7.Text);
         }
 
         private void btnClearSearch6_Click(object sender, EventArgs e)
@@ -281,6 +330,73 @@ namespace pssbd
         private void btnSaveChanges444_Click(object sender, EventArgs e)
         {
             _usersManager.SaveChanges();
+        }
+
+        private void ExecuteButton_Click(object sender, EventArgs e)
+        {
+            _analyticsManager.ExecuteSelectedQuery();
+        }
+
+
+        private void nextToolStripMenuItem4_Click_1(object sender, EventArgs e)
+        {
+            _languagesManager.NextPage();
+            label5.Text = _languagesManager.GetPageInfo();
+        }
+
+        private void previousToolStripMenuItem4_Click_1(object sender, EventArgs e)
+        {
+            _languagesManager.PreviousPage();
+            label5.Text = _languagesManager.GetPageInfo();
+        }
+
+        private void previousToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            _countriesManager.PreviousPage();
+            label6.Text = _countriesManager.GetPageInfo();
+        }
+
+        private void nextToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            _countriesManager.NextPage();
+            label6.Text = _countriesManager.GetPageInfo();
+        }
+
+        private void previousToolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            _citiesManager.PreviousPage();
+            label7.Text = _citiesManager.GetPageInfo();
+        }
+
+        private void nextToolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            _citiesManager.NextPage();
+            label7.Text = _citiesManager.GetPageInfo();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _publicationtypesManager.LoadData();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _ownershiptypesManager.LoadData();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _genresManager.LoadData();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            _bindingtypesManager.LoadData();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            _usersManager.LoadData();
         }
     }
 }

@@ -72,39 +72,61 @@
             tabPage5 = new TabPage();
             tabControl2 = new TabControl();
             tabPage7 = new TabPage();
+            button1 = new Button();
             btnSaveChanges4 = new Button();
             dataGridView5 = new DataGridView();
             tabPage8 = new TabPage();
+            button2 = new Button();
             btnSaveChanges5 = new Button();
             dataGridView6 = new DataGridView();
             tabPage9 = new TabPage();
+            label5 = new Label();
             textBox5 = new TextBox();
             btnClearSearch4 = new Button();
             btnSearch4 = new Button();
             btnSaveChanges6 = new Button();
             dataGridView7 = new DataGridView();
+            menuStrip5 = new MenuStrip();
+            nextToolStripMenuItem4 = new ToolStripMenuItem();
+            previousToolStripMenuItem4 = new ToolStripMenuItem();
             tabPage10 = new TabPage();
+            button3 = new Button();
             btnSaveChanges7 = new Button();
             dataGridView8 = new DataGridView();
             tabPage11 = new TabPage();
+            label6 = new Label();
             textBox6 = new TextBox();
             btnClearSearch5 = new Button();
             btnSearch5 = new Button();
             btnSaveChanges8 = new Button();
             dataGridView9 = new DataGridView();
+            menuStrip6 = new MenuStrip();
+            previousToolStripMenuItem5 = new ToolStripMenuItem();
+            nextToolStripMenuItem5 = new ToolStripMenuItem();
             tabPage12 = new TabPage();
+            label7 = new Label();
             textBox7 = new TextBox();
             btnClearSearch6 = new Button();
             btnSearch6 = new Button();
             btnSaveChanges10 = new Button();
             dataGridView10 = new DataGridView();
+            menuStrip7 = new MenuStrip();
+            previousToolStripMenuItem6 = new ToolStripMenuItem();
+            nextToolStripMenuItem6 = new ToolStripMenuItem();
             tabPage13 = new TabPage();
+            button4 = new Button();
             btnSaveChanges11 = new Button();
             dataGridView11 = new DataGridView();
             tabPage6 = new TabPage();
             btnSaveChanges444 = new Button();
             dataGridView12 = new DataGridView();
             tabPage14 = new TabPage();
+            ExecuteButton = new Button();
+            textBoxSecondParam = new TextBox();
+            textBoxFirstParam = new TextBox();
+            comboBox1 = new ComboBox();
+            dataGridView13 = new DataGridView();
+            button5 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -126,16 +148,21 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView6).BeginInit();
             tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView7).BeginInit();
+            menuStrip5.SuspendLayout();
             tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView8).BeginInit();
             tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView9).BeginInit();
+            menuStrip6.SuspendLayout();
             tabPage12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView10).BeginInit();
+            menuStrip7.SuspendLayout();
             tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView11).BeginInit();
             tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView12).BeginInit();
+            tabPage14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView13).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -559,6 +586,7 @@
             // 
             // tabPage7
             // 
+            tabPage7.Controls.Add(button1);
             tabPage7.Controls.Add(btnSaveChanges4);
             tabPage7.Controls.Add(dataGridView5);
             tabPage7.Location = new Point(4, 24);
@@ -568,6 +596,16 @@
             tabPage7.TabIndex = 0;
             tabPage7.Text = "publicationtypes";
             tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(305, 456);
+            button1.Name = "button1";
+            button1.Size = new Size(105, 23);
+            button1.TabIndex = 6;
+            button1.Text = "reset";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnSaveChanges4
             // 
@@ -589,6 +627,7 @@
             // 
             // tabPage8
             // 
+            tabPage8.Controls.Add(button2);
             tabPage8.Controls.Add(btnSaveChanges5);
             tabPage8.Controls.Add(dataGridView6);
             tabPage8.Location = new Point(4, 24);
@@ -598,6 +637,16 @@
             tabPage8.TabIndex = 1;
             tabPage8.Text = "ownershiptypes";
             tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(323, 452);
+            button2.Name = "button2";
+            button2.Size = new Size(114, 23);
+            button2.TabIndex = 7;
+            button2.Text = "reset";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // btnSaveChanges5
             // 
@@ -619,11 +668,13 @@
             // 
             // tabPage9
             // 
+            tabPage9.Controls.Add(label5);
             tabPage9.Controls.Add(textBox5);
             tabPage9.Controls.Add(btnClearSearch4);
             tabPage9.Controls.Add(btnSearch4);
             tabPage9.Controls.Add(btnSaveChanges6);
             tabPage9.Controls.Add(dataGridView7);
+            tabPage9.Controls.Add(menuStrip5);
             tabPage9.Location = new Point(4, 24);
             tabPage9.Name = "tabPage9";
             tabPage9.Padding = new Padding(3);
@@ -632,16 +683,25 @@
             tabPage9.Text = "languages";
             tabPage9.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(23, 521);
+            label5.Name = "label5";
+            label5.Size = new Size(38, 15);
+            label5.TabIndex = 11;
+            label5.Text = "label5";
+            // 
             // textBox5
             // 
-            textBox5.Location = new Point(324, 449);
+            textBox5.Location = new Point(365, 518);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(100, 23);
             textBox5.TabIndex = 9;
             // 
             // btnClearSearch4
             // 
-            btnClearSearch4.Location = new Point(436, 448);
+            btnClearSearch4.Location = new Point(489, 517);
             btnClearSearch4.Name = "btnClearSearch4";
             btnClearSearch4.Size = new Size(114, 23);
             btnClearSearch4.TabIndex = 8;
@@ -651,7 +711,7 @@
             // 
             // btnSearch4
             // 
-            btnSearch4.Location = new Point(204, 448);
+            btnSearch4.Location = new Point(235, 517);
             btnSearch4.Name = "btnSearch4";
             btnSearch4.Size = new Size(114, 23);
             btnSearch4.TabIndex = 7;
@@ -661,7 +721,7 @@
             // 
             // btnSaveChanges6
             // 
-            btnSaveChanges6.Location = new Point(64, 448);
+            btnSaveChanges6.Location = new Point(104, 517);
             btnSaveChanges6.Name = "btnSaveChanges6";
             btnSaveChanges6.Size = new Size(114, 23);
             btnSaveChanges6.TabIndex = 6;
@@ -672,13 +732,37 @@
             // dataGridView7
             // 
             dataGridView7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView7.Location = new Point(3, 3);
+            dataGridView7.Location = new Point(6, 30);
             dataGridView7.Name = "dataGridView7";
-            dataGridView7.Size = new Size(501, 429);
+            dataGridView7.Size = new Size(611, 467);
             dataGridView7.TabIndex = 5;
+            // 
+            // menuStrip5
+            // 
+            menuStrip5.Items.AddRange(new ToolStripItem[] { nextToolStripMenuItem4, previousToolStripMenuItem4 });
+            menuStrip5.Location = new Point(3, 3);
+            menuStrip5.Name = "menuStrip5";
+            menuStrip5.Size = new Size(1016, 24);
+            menuStrip5.TabIndex = 10;
+            menuStrip5.Text = "menuStrip5";
+            // 
+            // nextToolStripMenuItem4
+            // 
+            nextToolStripMenuItem4.Name = "nextToolStripMenuItem4";
+            nextToolStripMenuItem4.Size = new Size(64, 20);
+            nextToolStripMenuItem4.Text = "previous";
+            nextToolStripMenuItem4.Click += nextToolStripMenuItem4_Click_1;
+            // 
+            // previousToolStripMenuItem4
+            // 
+            previousToolStripMenuItem4.Name = "previousToolStripMenuItem4";
+            previousToolStripMenuItem4.Size = new Size(42, 20);
+            previousToolStripMenuItem4.Text = "next";
+            previousToolStripMenuItem4.Click += previousToolStripMenuItem4_Click_1;
             // 
             // tabPage10
             // 
+            tabPage10.Controls.Add(button3);
             tabPage10.Controls.Add(btnSaveChanges7);
             tabPage10.Controls.Add(dataGridView8);
             tabPage10.Location = new Point(4, 24);
@@ -688,6 +772,16 @@
             tabPage10.TabIndex = 3;
             tabPage10.Text = "genres";
             tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(313, 447);
+            button3.Name = "button3";
+            button3.Size = new Size(114, 23);
+            button3.TabIndex = 8;
+            button3.Text = "reset";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // btnSaveChanges7
             // 
@@ -709,11 +803,13 @@
             // 
             // tabPage11
             // 
+            tabPage11.Controls.Add(label6);
             tabPage11.Controls.Add(textBox6);
             tabPage11.Controls.Add(btnClearSearch5);
             tabPage11.Controls.Add(btnSearch5);
             tabPage11.Controls.Add(btnSaveChanges8);
             tabPage11.Controls.Add(dataGridView9);
+            tabPage11.Controls.Add(menuStrip6);
             tabPage11.Location = new Point(4, 24);
             tabPage11.Name = "tabPage11";
             tabPage11.Padding = new Padding(3);
@@ -722,16 +818,25 @@
             tabPage11.Text = "countries";
             tabPage11.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(21, 511);
+            label6.Name = "label6";
+            label6.Size = new Size(38, 15);
+            label6.TabIndex = 15;
+            label6.Text = "label6";
+            // 
             // textBox6
             // 
-            textBox6.Location = new Point(278, 449);
+            textBox6.Location = new Point(378, 510);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(100, 23);
             textBox6.TabIndex = 13;
             // 
             // btnClearSearch5
             // 
-            btnClearSearch5.Location = new Point(390, 448);
+            btnClearSearch5.Location = new Point(501, 510);
             btnClearSearch5.Name = "btnClearSearch5";
             btnClearSearch5.Size = new Size(114, 23);
             btnClearSearch5.TabIndex = 12;
@@ -741,7 +846,7 @@
             // 
             // btnSearch5
             // 
-            btnSearch5.Location = new Point(158, 448);
+            btnSearch5.Location = new Point(239, 509);
             btnSearch5.Name = "btnSearch5";
             btnSearch5.Size = new Size(114, 23);
             btnSearch5.TabIndex = 11;
@@ -751,7 +856,7 @@
             // 
             // btnSaveChanges8
             // 
-            btnSaveChanges8.Location = new Point(18, 448);
+            btnSaveChanges8.Location = new Point(104, 509);
             btnSaveChanges8.Name = "btnSaveChanges8";
             btnSaveChanges8.Size = new Size(114, 23);
             btnSaveChanges8.TabIndex = 10;
@@ -762,18 +867,43 @@
             // dataGridView9
             // 
             dataGridView9.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView9.Location = new Point(3, 3);
+            dataGridView9.Location = new Point(6, 30);
             dataGridView9.Name = "dataGridView9";
-            dataGridView9.Size = new Size(501, 429);
+            dataGridView9.Size = new Size(599, 460);
             dataGridView9.TabIndex = 5;
+            // 
+            // menuStrip6
+            // 
+            menuStrip6.Items.AddRange(new ToolStripItem[] { previousToolStripMenuItem5, nextToolStripMenuItem5 });
+            menuStrip6.Location = new Point(3, 3);
+            menuStrip6.Name = "menuStrip6";
+            menuStrip6.Size = new Size(1016, 24);
+            menuStrip6.TabIndex = 14;
+            menuStrip6.Text = "menuStrip6";
+            // 
+            // previousToolStripMenuItem5
+            // 
+            previousToolStripMenuItem5.Name = "previousToolStripMenuItem5";
+            previousToolStripMenuItem5.Size = new Size(64, 20);
+            previousToolStripMenuItem5.Text = "previous";
+            previousToolStripMenuItem5.Click += previousToolStripMenuItem5_Click;
+            // 
+            // nextToolStripMenuItem5
+            // 
+            nextToolStripMenuItem5.Name = "nextToolStripMenuItem5";
+            nextToolStripMenuItem5.Size = new Size(42, 20);
+            nextToolStripMenuItem5.Text = "next";
+            nextToolStripMenuItem5.Click += nextToolStripMenuItem5_Click;
             // 
             // tabPage12
             // 
+            tabPage12.Controls.Add(label7);
             tabPage12.Controls.Add(textBox7);
             tabPage12.Controls.Add(btnClearSearch6);
             tabPage12.Controls.Add(btnSearch6);
             tabPage12.Controls.Add(btnSaveChanges10);
             tabPage12.Controls.Add(dataGridView10);
+            tabPage12.Controls.Add(menuStrip7);
             tabPage12.Location = new Point(4, 24);
             tabPage12.Name = "tabPage12";
             tabPage12.Padding = new Padding(3);
@@ -782,16 +912,25 @@
             tabPage12.Text = "cities";
             tabPage12.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(32, 519);
+            label7.Name = "label7";
+            label7.Size = new Size(38, 15);
+            label7.TabIndex = 15;
+            label7.Text = "label7";
+            // 
             // textBox7
             // 
-            textBox7.Location = new Point(275, 438);
+            textBox7.Location = new Point(398, 514);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(100, 23);
             textBox7.TabIndex = 13;
             // 
             // btnClearSearch6
             // 
-            btnClearSearch6.Location = new Point(387, 437);
+            btnClearSearch6.Location = new Point(520, 514);
             btnClearSearch6.Name = "btnClearSearch6";
             btnClearSearch6.Size = new Size(114, 23);
             btnClearSearch6.TabIndex = 12;
@@ -801,7 +940,7 @@
             // 
             // btnSearch6
             // 
-            btnSearch6.Location = new Point(155, 437);
+            btnSearch6.Location = new Point(266, 515);
             btnSearch6.Name = "btnSearch6";
             btnSearch6.Size = new Size(114, 23);
             btnSearch6.TabIndex = 11;
@@ -811,7 +950,7 @@
             // 
             // btnSaveChanges10
             // 
-            btnSaveChanges10.Location = new Point(15, 437);
+            btnSaveChanges10.Location = new Point(135, 515);
             btnSaveChanges10.Name = "btnSaveChanges10";
             btnSaveChanges10.Size = new Size(114, 23);
             btnSaveChanges10.TabIndex = 10;
@@ -822,13 +961,37 @@
             // dataGridView10
             // 
             dataGridView10.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView10.Location = new Point(3, 3);
+            dataGridView10.Location = new Point(6, 32);
             dataGridView10.Name = "dataGridView10";
-            dataGridView10.Size = new Size(501, 429);
+            dataGridView10.Size = new Size(628, 463);
             dataGridView10.TabIndex = 5;
+            // 
+            // menuStrip7
+            // 
+            menuStrip7.Items.AddRange(new ToolStripItem[] { previousToolStripMenuItem6, nextToolStripMenuItem6 });
+            menuStrip7.Location = new Point(3, 3);
+            menuStrip7.Name = "menuStrip7";
+            menuStrip7.Size = new Size(1016, 24);
+            menuStrip7.TabIndex = 14;
+            menuStrip7.Text = "menuStrip7";
+            // 
+            // previousToolStripMenuItem6
+            // 
+            previousToolStripMenuItem6.Name = "previousToolStripMenuItem6";
+            previousToolStripMenuItem6.Size = new Size(64, 20);
+            previousToolStripMenuItem6.Text = "previous";
+            previousToolStripMenuItem6.Click += previousToolStripMenuItem6_Click;
+            // 
+            // nextToolStripMenuItem6
+            // 
+            nextToolStripMenuItem6.Name = "nextToolStripMenuItem6";
+            nextToolStripMenuItem6.Size = new Size(42, 20);
+            nextToolStripMenuItem6.Text = "next";
+            nextToolStripMenuItem6.Click += nextToolStripMenuItem6_Click;
             // 
             // tabPage13
             // 
+            tabPage13.Controls.Add(button4);
             tabPage13.Controls.Add(btnSaveChanges11);
             tabPage13.Controls.Add(dataGridView11);
             tabPage13.Location = new Point(4, 24);
@@ -838,6 +1001,16 @@
             tabPage13.TabIndex = 6;
             tabPage13.Text = "bindingtypes";
             tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(313, 448);
+            button4.Name = "button4";
+            button4.Size = new Size(114, 23);
+            button4.TabIndex = 12;
+            button4.Text = "reset";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // btnSaveChanges11
             // 
@@ -859,6 +1032,7 @@
             // 
             // tabPage6
             // 
+            tabPage6.Controls.Add(button5);
             tabPage6.Controls.Add(btnSaveChanges444);
             tabPage6.Controls.Add(dataGridView12);
             tabPage6.Location = new Point(4, 24);
@@ -889,6 +1063,11 @@
             // 
             // tabPage14
             // 
+            tabPage14.Controls.Add(ExecuteButton);
+            tabPage14.Controls.Add(textBoxSecondParam);
+            tabPage14.Controls.Add(textBoxFirstParam);
+            tabPage14.Controls.Add(comboBox1);
+            tabPage14.Controls.Add(dataGridView13);
             tabPage14.Location = new Point(4, 24);
             tabPage14.Name = "tabPage14";
             tabPage14.Padding = new Padding(3);
@@ -896,6 +1075,59 @@
             tabPage14.TabIndex = 6;
             tabPage14.Text = "Аналитика";
             tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // ExecuteButton
+            // 
+            ExecuteButton.Location = new Point(851, 533);
+            ExecuteButton.Name = "ExecuteButton";
+            ExecuteButton.Size = new Size(382, 23);
+            ExecuteButton.TabIndex = 4;
+            ExecuteButton.Text = "EXECUTE QUERY";
+            ExecuteButton.UseVisualStyleBackColor = true;
+            ExecuteButton.Click += ExecuteButton_Click;
+            // 
+            // textBoxSecondParam
+            // 
+            textBoxSecondParam.Location = new Point(851, 504);
+            textBoxSecondParam.Name = "textBoxSecondParam";
+            textBoxSecondParam.Size = new Size(382, 23);
+            textBoxSecondParam.TabIndex = 3;
+            // 
+            // textBoxFirstParam
+            // 
+            textBoxFirstParam.Location = new Point(851, 475);
+            textBoxFirstParam.Name = "textBoxFirstParam";
+            textBoxFirstParam.Size = new Size(382, 23);
+            textBoxFirstParam.TabIndex = 2;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(851, 17);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(382, 23);
+            comboBox1.TabIndex = 1;
+            // 
+            // dataGridView13
+            // 
+            dataGridView13.AllowUserToAddRows = false;
+            dataGridView13.AllowUserToDeleteRows = false;
+            dataGridView13.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView13.Location = new Point(17, 17);
+            dataGridView13.Name = "dataGridView13";
+            dataGridView13.ReadOnly = true;
+            dataGridView13.Size = new Size(828, 539);
+            dataGridView13.TabIndex = 0;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(403, 411);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 8;
+            button5.Text = "reset";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // Form1
             // 
@@ -939,18 +1171,27 @@
             tabPage9.ResumeLayout(false);
             tabPage9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView7).EndInit();
+            menuStrip5.ResumeLayout(false);
+            menuStrip5.PerformLayout();
             tabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView8).EndInit();
             tabPage11.ResumeLayout(false);
             tabPage11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView9).EndInit();
+            menuStrip6.ResumeLayout(false);
+            menuStrip6.PerformLayout();
             tabPage12.ResumeLayout(false);
             tabPage12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView10).EndInit();
+            menuStrip7.ResumeLayout(false);
+            menuStrip7.PerformLayout();
             tabPage13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView11).EndInit();
             tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView12).EndInit();
+            tabPage14.ResumeLayout(false);
+            tabPage14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView13).EndInit();
             ResumeLayout(false);
         }
 
@@ -1033,5 +1274,27 @@
         private DataGridView dataGridView12;
         private TabPage tabPage14;
         private Button btnSaveChanges444;
+        private Button ExecuteButton;
+        private TextBox textBoxSecondParam;
+        private TextBox textBoxFirstParam;
+        private ComboBox comboBox1;
+        private DataGridView dataGridView13;
+        private MenuStrip menuStrip5;
+        private ToolStripMenuItem nextToolStripMenuItem4;
+        private ToolStripMenuItem previousToolStripMenuItem4;
+        private Label label5;
+        private MenuStrip menuStrip6;
+        private Label label6;
+        private ToolStripMenuItem previousToolStripMenuItem5;
+        private ToolStripMenuItem nextToolStripMenuItem5;
+        private MenuStrip menuStrip7;
+        private ToolStripMenuItem previousToolStripMenuItem6;
+        private ToolStripMenuItem nextToolStripMenuItem6;
+        private Label label7;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
     }
 }

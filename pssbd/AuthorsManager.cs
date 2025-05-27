@@ -31,6 +31,8 @@ namespace pssbd
             _authorsTable.Columns.Add("first_name", typeof(string));
             _authorsTable.Columns.Add("last_name", typeof(string));
             _authorsTable.Columns.Add("o_name", typeof(string));
+            _authorsTable.Columns.Add("date_of_birth", typeof(DateTime));
+            _authorsTable.Columns.Add("date_of_death", typeof(DateTime));
             _authorsTable.Columns.Add("country_name", typeof(string));
 
             _dataGridView.DataSource = _authorsTable;
@@ -41,6 +43,8 @@ namespace pssbd
             _dataGridView.Columns["first_name"].HeaderText = "Имя";
             _dataGridView.Columns["last_name"].HeaderText = "Фамилия";
             _dataGridView.Columns["o_name"].HeaderText = "Отчество";
+            _dataGridView.Columns["date_of_birth"].HeaderText = "Дата рождения";
+            _dataGridView.Columns["date_of_death"].HeaderText = "Дата смерти";
             _dataGridView.Columns["country_name"].HeaderText = "Страна";
         }
 
@@ -95,40 +99,53 @@ namespace pssbd
                     if (row.RowState == DataRowState.Deleted)
                     {
                         var id = row["author_id", DataRowVersion.Original];
-                        new NpgsqlCommand("SELECT delete_author(@id)", connection)
-                            .AddParam("@id", (int)id)
-                            .ExecuteNonQuery();
+                        using (var cmd = new NpgsqlCommand("SELECT delete_author(@id)", connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", (int)id);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                     else if (row.RowState == DataRowState.Modified)
                     {
-                        new NpgsqlCommand("SELECT update_author(@id, @first, @last, @o, @country)", connection)
-                            .AddParams(new
-                            {
-                                id = (int)row["author_id"],
-                                first = row["first_name"],
-                                last = row["last_name"],
-                                o = row["o_name"],
-                                country = row["country_name"]
-                            })
-                            .ExecuteNonQuery();
+                        var dob = row["date_of_birth"] == DBNull.Value ? DBNull.Value : (object)((DateTime)row["date_of_birth"]);
+                        var dod = row["date_of_death"] == DBNull.Value ? DBNull.Value : (object)((DateTime)row["date_of_death"]);
+
+                        using (var cmd = new NpgsqlCommand("SELECT update_author(@id, @first, @last, @o, @country, @dob, @dod)", connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", (int)row["author_id"]);
+                            cmd.Parameters.AddWithValue("@first", row["first_name"]);
+                            cmd.Parameters.AddWithValue("@last", row["last_name"]);
+                            cmd.Parameters.Add("@dob", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = dob;
+                            cmd.Parameters.Add("@dod", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = dod;
+
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                     else if (row.RowState == DataRowState.Added)
                     {
-                        new NpgsqlCommand("SELECT insert_author(@first, @last, @o, @country)", connection)
-                            .AddParams(new
-                            {
-                                first = row["first_name"],
-                                last = row["last_name"],
-                                o = row["o_name"],
-                                country = row["country_name"]
-                            })
-                            .ExecuteNonQuery();
+                        var dob = row["date_of_birth"] == DBNull.Value ? DBNull.Value : (object)((DateTime)row["date_of_birth"]);
+                        var dod = row["date_of_death"] == DBNull.Value ? DBNull.Value : (object)((DateTime)row["date_of_death"]);
+
+                        using (var cmd = new NpgsqlCommand("SELECT insert_author(@first, @last, @o, @country, @dob, @dod)", connection))
+                        {
+                            cmd.Parameters.AddWithValue("@first", row["first_name"]);
+                            cmd.Parameters.AddWithValue("@last", row["last_name"]);
+                            cmd.Parameters.AddWithValue("@o", row["o_name"]);
+                            cmd.Parameters.AddWithValue("@country", row["country_name"]);
+
+                            cmd.Parameters.Add("@dob", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = dob;
+                            cmd.Parameters.Add("@dod", NpgsqlTypes.NpgsqlDbType.Timestamp).Value = dod;
+
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                 }
 
                 _authorsTable.AcceptChanges();
             }
         }
+
+
 
         public void Search(string searchTerm)
         {

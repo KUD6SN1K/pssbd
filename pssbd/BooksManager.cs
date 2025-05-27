@@ -29,15 +29,15 @@ namespace pssbd
         private void InitializeTable()
         {
             _booksTable = new DataTable();
-            _booksTable.Columns.Add("book_id", typeof(int));
             _booksTable.Columns.Add("title", typeof(string));
+            _booksTable.Columns.Add("book_id", typeof(int));
             _booksTable.Columns.Add("year_of_writing", typeof(int));
             _booksTable.Columns.Add("authors", typeof(string));
             _booksTable.Columns.Add("genres", typeof(string));
 
             _dataGridView.DataSource = _booksTable;
             _dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
+            _dataGridView.Columns["book_id"].Visible = false;
             _dataGridView.Columns["title"].HeaderText = "Название книги";
             _dataGridView.Columns["year_of_writing"].HeaderText = "Год написания";
             _dataGridView.Columns["authors"].HeaderText = "Авторы";
